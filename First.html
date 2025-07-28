@@ -1,12 +1,287 @@
 <!DOCTYPE html>
-<html>
+<html lang="ta">
 <head>
-  <title>My Simple Page</title>
+    <meta charset="UTF-8">
+    <title>ஆலோசனை</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    
+    <!-- AOS & Animate CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(180deg, #fef7ff, #e6e9f0);
+            font-family: 'Noto Serif Tamil', serif;
+            color: #333;
+        }
+
+        .advice-container {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .advice-title {
+            text-align: center;
+            color: #8e24aa;
+            font-size: 2.7rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .advice-tile {
+            background: linear-gradient(135deg, #ffffff, #f3e5f5);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .advice-tile:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(142,36,170,0.3);
+        }
+
+        .advice-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .advice-img img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.4s ease;
+            border-radius: 10px;
+        }
+
+        .advice-img:hover img {
+            transform: scale(1.07);
+        }
+
+        .advice-text h4 {
+            color: #6a1b9a;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .advice-text p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+
+        .read-more {
+            color: #8e24aa;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #d81b60;
+        }
+
+        .read-more-content {
+            display: none;
+            margin-top: 10px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .quote-box {
+            background: linear-gradient(to right, #f3e5f5, #fce4ec);
+            padding: 40px;
+            border-left: 8px solid #8e24aa;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #333;
+            margin: 50px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-box::before, .quote-box::after {
+            font-size: 4rem;
+            color: #8e24aa;
+            position: absolute;
+            opacity: 0.2;
+            animation: fadeInOut 3s infinite;
+        }
+
+        .quote-box::before {
+            content: '“';
+            top: -20px;
+            left: 10px;
+        }
+
+        .quote-box::after {
+            content: '”';
+            bottom: -20px;
+            right: 10px;
+        }
+
+        @keyframes fadeInOut {
+            0%,100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+        }
+
+        @media (min-width: 768px) {
+            .advice-tile-wrapper {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .advice-tile-wrapper {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .advice-title {
+                font-size: 2rem;
+            }
+
+            .advice-text h4 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to My Website</h1>
-  <p>This is a simple HTML page.</p>
-  <a href="https://example.com">Visit Example</a>
+    <div class="advice-container">
+        <div class="advice-title" data-aos="fade-down">
+            <i class="glyphicon glyphicon-education"></i> ஆலோசனை
+        </div>
+
+        <div class="advice-tile-wrapper" data-aos="zoom-in">
+            <!-- Reusable Tiles -->
+            <div class="advice-tile">
+                <div class="advice-img">
+                    <img src="https://via.placeholder.com/400x250?text=Time+Management" alt="Time Management">
+                </div>
+                <div class="advice-text">
+                    <h4>நேர மேலாண்மை மற்றும் திட்டமிடல்</h4>
+                    <p>நேரத்தை திறம்பட பயன்படுத்துவது வெற்றிக்கு முக்கியமானது.</p>
+                    <span class="read-more" onclick="toggleReadMore(this)">மேலும் வாசிக்க</span>
+                    <div class="read-more-content"><p>திட்டமிடல் மூலம் மாணவர்கள் தங்கள் படிப்பு மற்றும் வாழ்க்கையை சமநிலைப்படுத்த முடியும்.</p></div>
+                </div>
+            </div>
+
+            <div class="advice-tile">
+                <div class="advice-img">
+                    <img src="https://via.placeholder.com/400x250?text=Focused+Learning" alt="Focused Learning">
+                </div>
+                <div class="advice-text">
+                    <h4>கவனமாக கற்றல்</h4>
+                    <p>முக்கிய கருத்துகளை புரிந்து கொள்ள முயலுங்கள்.</p>
+                    <span class="read-more" onclick="toggleReadMore(this)">மேலும் வாசிக்க</span>
+                    <div class="read-more-content"><p>கவனமான கற்றல் தேர்வுகளில் சிறப்பாக செயல்பட உதவும்.</p></div>
+                </div>
+            </div>
+
+            <div class="advice-tile">
+                <div class="advice-img">
+                    <img src="https://via.placeholder.com/400x250?text=Communication+Skills" alt="Communication Skills">
+                </div>
+                <div class="advice-text">
+                    <h4>தொடர்பு திறன்கள்</h4>
+                    <p>தெளிவாக பேச கற்றுக்கொள்ளுங்கள்.</p>
+                    <span class="read-more" onclick="toggleReadMore(this)">மேலும் வாசிக்க</span>
+                    <div class="read-more-content"><p>தொடர்பு திறன்கள் தலைமைத்துவம் மற்றும் ஒத்துழைப்பை வளர்க்க உதவும்.</p></div>
+                </div>
+            </div>
+
+            <div class="advice-tile">
+                <div class="advice-img">
+                    <img src="https://via.placeholder.com/400x250?text=Goal+Setting" alt="Goal Setting">
+                </div>
+                <div class="advice-text">
+                    <h4>இலக்கு அமைப்பு</h4>
+                    <p>தெளிவான இலக்குகளை அமைக்கவும்.</p>
+                    <span class="read-more" onclick="toggleReadMore(this)">மேலும் வாசிக்க</span>
+                    <div class="read-more-content"><p>இலக்கு அமைப்பு உங்கள் முயற்சிகளை கவனமாகத் திசை திருப்ப உதவும்.</p></div>
+                </div>
+            </div>
+
+            <div class="advice-tile">
+                <div class="advice-img">
+                    <img src="https://via.placeholder.com/400x250?text=Study+Habits" alt="Study Habits">
+                </div>
+                <div class="advice-text">
+                    <h4>படிப்பு பழக்கங்கள்</h4>
+                    <p>தினசரி படிப்பு அட்டவணையை பின்பற்றவும்.</p>
+                    <span class="read-more" onclick="toggleReadMore(this)">மேலும் வாசிக்க</span>
+                    <div class="read-more-content"><p>நிர்ணயிக்கப்பட்ட நேரத்தில் படிப்பது உங்கள் திறனை அதிகரிக்கும்.</p></div>
+                </div>
+            </div>
+
+            <div class="advice-tile">
+                <div class="advice-img">
+                    <img src="https://via.placeholder.com/400x250?text=Exam+Preparation" alt="Exam Preparation">
+                </div>
+                <div class="advice-text">
+                    <h4>தேர்வு தயாரிப்பு</h4>
+                    <p>முந்தைய வினாத்தாள்களை பயிற்சி செய்யவும்.</p>
+                    <span class="read-more" onclick="toggleReadMore(this)">மேலும் வாசிக்க</span>
+                    <div class="read-more-content"><p>நேரமான தயாரிப்பு உங்களுக்கு நம்பிக்கையை அளிக்கும்.</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Motivational Quote -->
+        <div class="quote-box" data-aos="zoom-in-up">
+            <p>“கல்வி என்பது உலகை மாற்றும் மிக சக்திவாய்ந்த ஆயுதம்.”</p>
+            <p style="font-size: 1.75rem; color: #8e24aa; margin-top: 10px;">- நெல்சன் மண்டேலா -</p>
+        </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true, easing: 'ease-in-out' });
+
+        function toggleReadMore(el) {
+            var content = $(el).next('.read-more-content');
+            if (content.is(':visible')) {
+                content.slideUp(500);
+                $(el).text('மேலும் வாசிக்க');
+            } else {
+                content.slideDown(500);
+                $(el).text('மடக்கு');
+            }
+        }
+    </script>
 </body>
 </html>
-
